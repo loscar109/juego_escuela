@@ -1,0 +1,89 @@
+
+  audio {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+
+  .card-title {
+    top: 350px;
+
+
+
+  }
+  .contenedor1{
+
+position: absolute;
+
+top: 550px;
+left: 100px;
+  }
+
+
+  /* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #6346d3, #00843d); /* Degradado de morado a verde */
+}
+
+header {
+  background-color: #6346d3; /* Morado */
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+header h1 {
+  font-size: 36px;
+}
+
+main {
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Estilos de las tarjetas de preguntas */
+.card {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card h2 {
+  color: #00843d; /* Verde */
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #333;
+}
+
+footer {
+  background-color: #6346d3; /* Morado */
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+
+.center-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+  

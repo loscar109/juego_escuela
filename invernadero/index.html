@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logaritmos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('fondo.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        h1 {
+            font-style: oblique;
+            background-color: aliceblue;
+        }
+        .video-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">LOGARITHMS</h1>
+    <a href="../Menu_principal.php">
+        <button>Atras</button>
+    </a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <div class="container d-flex justify-content-center">
+        <!-- Actividad 1 -->
+        <div class="activity">
+            <div class="card" style="width: 18rem;">
+                <img src="log.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Activity 1</h5>
+                    <p class="card-text"></p>
+                    <button class="btn btn-primary" onclick="verificarRespuesta(2, '')">Resultado = 5</button>
+                    <button class="btn btn-primary" onclick="verificarRespuesta(1, 'Resultado = 3')">Resultado = 3</button>
+                    <p id="resultado1"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actividad 2 -->
+        <div class="activity" style="display: none;">
+            <div class="card" style="width: 18rem;">
+                <img src="log2.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Activity 2</h5>
+                    <p class="card-text"></p>
+                    <button class="btn btn-primary" onclick="verificarRespuesta(2, 'Resultado = 4')">Resultado = 4</button>
+                    <button class="btn btn-primary" onclick="verificarRespuesta(2, '')">Resultado = 8</button>
+                    <p id="resultado2"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actividad 3 -->
+        <div class="activity" style="display: none;">
+            <div class="card" style="width: 18rem;">
+                <img src="Lag3.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Activity 3</h5>
+                    <p class="card-text"></p>
+                    <button class="btn btn-primary" onclick="verificarRespuesta(3, 'Resultado = 2')">Resultado = 2</button>
+                    <button class="btn btn-primary" onclick="verificarRespuesta(3, '')">Resultado = 5</button>
+                    <p id="resultado3"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actividad 4 -->
+        <div class="activity" style="display: none;">
+            <div class="card" style="width: 18rem;">
+                <img src="Log4.PNG" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Activity 4</h5>
+                    <p class="card-text"></p>
+                    <button class="btn btn-primary" onclick="verificarRespuesta(4, '')">Resultado = 2</button>
+                    <button class="btn btn-primary" onclick="verificarRespuesta(4, 'Resultado = 4')">Resultado = 4</button>
+                    <p id="resultado4"></p>
+                </div>
+            </div>
+        </div>
+
+        
+        
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="resultadoModal" tabindex="-1" role="dialog" aria-labelledby="resultadoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultadoModalLabel">Resultado</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- El resultado se mostrará aquí -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="avanzarActividad()">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Video Container -->
+<div class="video-container">
+    <video id="fullscreenVideo" controls>
+        <source src="GAME OVER_Final part.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+</div>
+
+<script>
+    // Función para reproducir el video
+    function reproducirVideo() {
+        var video = document.getElementById('fullscreenVideo');
+        video.play();
+    }
+
+    // Llama a la función reproducirVideo después de un clic en la página
+    document.addEventListener('click', function() {
+        reproducirVideo();
+        // Elimina el manejador de eventos después del primer clic
+        document.removeEventListener('click', arguments.callee);
+    });
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script>
+        var currentActivity = 0;
+        var activities = document.querySelectorAll('.activity');
+
+        function verificarRespuesta(actividad, respuestaCorrecta) {
+            var botones = document.querySelectorAll(`[onclick="verificarRespuesta(${actividad}, '${respuestaCorrecta}')"]`);
+
+            // Check if the selected answer is correct
+            var isCorrect = false;
+            botones.forEach(function (boton) {
+                if (boton.textContent.trim() === respuestaCorrecta) {
+                    isCorrect = true;
+                }
+            });
+
+            // Display the result in the modal
+            var modalBody = document.getElementById("modalBody");
+            modalBody.textContent = isCorrect ? "¡Correcto!" : "¡Incorrecto!";
+
+            // Show the modal
+            $('#resultadoModal').modal('show');
+        }
+
+        function avanzarActividad() {
+            $('#resultadoModal').modal('hide'); // Cerrar la ventana modal
+
+            // Ocultar la actividad actual
+            activities[currentActivity].style.display = "none";
+            currentActivity++;
+
+            if (currentActivity < activities.length) {
+                // Mostrar la siguiente actividad
+                activities[currentActivity].style.display = "block";
+            } else {
+                // Mostrar el contenedor de video en pantalla completa
+                $('.video-container').show();
+                document.getElementById('fullscreenVideo').requestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
